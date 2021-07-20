@@ -1,0 +1,29 @@
+.MuiTabs-flexContainer {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.MuiFormControl-root {
+    width: 100%;
+}
+
+.MuiDivider-root {
+    width: 45%;
+    background-color: #0005 !important;
+    height: 0.5px !important;
+}
+
+.MuiAppBar-root {
+    border-radius: 15px;
+}
+
+.MuiGrid-item {
+    width: 100%;
+}
+
+.poly-bg {
+   background-image: url('../assets/polyy.svg');
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: 550px; 
+}
