@@ -1,29 +1,19 @@
-import { Grid } from '@material-ui/core';
-import home from './assets/8432.svg';
-import LogSignIn from './Components/LogSignIn';
-import useStyles from './Components/style';
+import React, { useEffect, useState } from 'react';
 import './App.scss';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-import { useTheme } from '@material-ui/core/styles';
+import { Route, Switch } from 'react-router-dom';
+import Landing from './Components/Pages/Landing/Landing.jsx';
+import AddExpense from './Components/Pages/AddExpense/AddExpense.jsx';
 
 function App() {
-
-  const classes = useStyles();
-  
-  const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.up('sm'));
-
   return (
-    <>
-        <Grid container className={classes.root}>
-          {matches ? <Grid style={matches? {padding: '5rem 10rem'}: {}} item md={6} sm={12}>
-            <img alt="home" className={classes.homeImg} src={home}/>
-          </Grid>: null}
-          <Grid className="poly-bg" style={matches? {padding: '5rem 10rem'}: {}} item md={6} sm={12}>
-            <LogSignIn></LogSignIn>
-          </Grid>
-        </Grid>
-    </>
+    <Switch>
+      <Route path="/" exact>
+        <Landing />
+      </Route>
+      <Route path="/money">
+        <AddExpense />
+      </Route>
+    </Switch>
   );
 }
 

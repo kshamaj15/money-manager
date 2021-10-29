@@ -6,6 +6,7 @@ import { useState } from 'react';
 import './LogSignIn.scss';
 import { Button, Container, Divider, Grid } from '@material-ui/core';
 import Form from './shared/Form';
+import { useHistory } from "react-router-dom";
 
 import useStyles from './style';
 import fb from '../assets/facebook.svg';
@@ -14,6 +15,7 @@ import gg from '../assets/google.svg';
 const LogSignIn = props => {
 
     const classes = useStyles();
+    let history = useHistory();
 
     const [tabIndex, setTabIndex] = useState(0);
     const [loginFields] = useState([
@@ -30,6 +32,10 @@ const LogSignIn = props => {
     const handleChange = (e, newV) => {
         console.log(newV);
         setTabIndex(newV);
+    }
+
+    const onSubmit = () => {
+        history.push('/money');
     }
 
     return (
@@ -61,8 +67,8 @@ const LogSignIn = props => {
                     <Divider />OR<Divider />
                 </Grid>
                 {(tabIndex === 0) ?
-                    <Form fields={signinFields} formSubmitLabel="Sign Up" /> :
-                    <Form fields={loginFields} formSubmitLabel="Log In" />}
+                    <Form fields={signinFields} formSubmitLabel="Sign Up" onSubmit={onSubmit}/> :
+                    <Form fields={loginFields} formSubmitLabel="Log In" onSubmit={onSubmit}/>}
             </Container>
         </div>
     )
